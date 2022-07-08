@@ -14,7 +14,9 @@ set tabstop=2 shiftwidth=2 expandtab
 call plug#begin('~/.config/nvim/plugged')
 
 " General
-  Plug 'tami5/lspsaga.nvim'
+Plug 'projekt0n/github-nvim-theme'
+Plug 'sainnhe/edge'
+Plug 'tami5/lspsaga.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'onsails/lspkind-nvim'
  Plug 'windwp/nvim-autopairs'
@@ -61,9 +63,8 @@ call plug#end()
 lua require('xhan')
 
 " ---- Colors 
-set background=dark
-let g:neosolarized_italic = 1
-colorscheme NeoSolarized
+" colorscheme NeoSolarized
+
 " ---- EMMET
 "
 let g:user_emmet_mode='n'
