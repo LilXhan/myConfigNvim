@@ -14,14 +14,13 @@ set tabstop=2 shiftwidth=2 expandtab
 call plug#begin('~/.config/nvim/plugged')
 
 " General
-Plug 'projekt0n/github-nvim-theme'
-Plug 'sainnhe/edge'
+Plug 'folke/tokyonight.nvim'
+ Plug 'projekt0n/github-nvim-theme'
 Plug 'tami5/lspsaga.nvim'
 Plug 'windwp/nvim-autopairs'
 Plug 'onsails/lspkind-nvim'
  Plug 'windwp/nvim-autopairs'
-  Plug 'folke/lsp-colors.nvim'
-" Plug 'folke/tokyonight.nvim'
+ Plug 'folke/lsp-colors.nvim'
 Plug 'windwp/nvim-ts-autotag'
 Plug 'kyazdani42/nvim-web-devicons'                " Devicons
 Plug 'nvim-lualine/lualine.nvim'                   " Status line
@@ -33,6 +32,8 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lua/completion-nvim'
+" TERM
+Plug 'akinsho/toggleterm.nvim', {'tag' : 'v2.*'}
 " AutoCompletion
 
 Plug 'hrsh7th/nvim-cmp'
@@ -64,7 +65,8 @@ lua require('xhan')
 
 " ---- Colors 
 " colorscheme NeoSolarized
-
+set background=dark
+colorscheme tokyonight
 " ---- EMMET
 "
 let g:user_emmet_mode='n'
@@ -83,6 +85,16 @@ let g:user_emmet_settings={
 command! -nargs=0 Eslint :CocCommand eslint.executeAutofix
 nnoremap <C-D> :Eslint <CR>
 nnoremap <C-S> :NvimTreeToggle <CR>
-
+nnoremap <A-1> :BufferLineCycleNext <CR>
+nnoremap <A-2> :BufferLinePickClose <CR>
 autocmd FileType html,css EmmetInstall
 
+" TERM
+" set 
+autocmd TermEnter term://*toggleterm#*
+       \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+
+" For example: 2<C-t> will open terminal 2
+ nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+ inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
